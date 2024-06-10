@@ -341,7 +341,7 @@ def solve():
     train_pred['pred'] = model.predict(train_pred[features])
     train_pred['pred'] = train_pred['pred'].map(lambda x: 0 if x < 0 else x)
     sub = train_pred[['ID', 'Date_Hour', 'pred']]
-    #    sub.to_csv('./result/LC_1.csv',header=None,sep=',',index=False)
+    #    sub.to_csv('./result/block_predict_result_1.csv',header=None,sep=',',index=False)
 
     return sub
 
@@ -486,7 +486,7 @@ def solve2():
 
     sub = out[['ID', 'Date_Hour', 'Index']]
 
-    #    sub.to_csv('./result/LC_2.csv',header=None,sep=',',index=False)
+    #    sub.to_csv('./result/block_predict_result_2.csv',header=None,sep=',',index=False)
     return sub
 
 
@@ -496,8 +496,8 @@ def solve3():
     sub_1['pred'] = list(map(lambda x, y: x * 1.04 if y == 786 else x * 1.05, sub_1['pred'], sub_1['ID']))
     sub_2['Index'] = list(map(lambda x, y: x * 1.04 if y == 786 else x * 1.03, sub_2['Index'], sub_2['ID']))
 
-    #    sub_1.to_csv('./result/LC_3.csv',header=None,sep=',',index=False)
-    #    sub_2.to_csv('./result/LC_4.csv',header=None,sep=',',index=False)
+    #    sub_1.to_csv('./result/block_predict_result_3.csv',header=None,sep=',',index=False)
+    #    sub_2.to_csv('./result/block_predict_result_4.csv',header=None,sep=',',index=False)
 
     sub_1['Index'] = sub_2['Index']
     sub_1['Pred'] = sub_1['Index'] * 0.50 + sub_1['pred'] * 0.50
@@ -518,3 +518,4 @@ def solve3():
 
 
 solve3()
+#徐睿豪20224352106
